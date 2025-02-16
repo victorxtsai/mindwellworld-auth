@@ -8,6 +8,20 @@ import {
 import { auth } from "../firebaseConfig";
 import "./AccountAccess.css";
 
+
+// Function to fetch the custom token from Firebase Function
+const fetchCustomToken = async (idToken) => {
+  const response = await fetch("https://api-3g5u5d4ixa-uc.a.run.app", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ idToken }),
+  });
+
+  const data = await response.json();
+  return data.customToken;
+};
+
+
 function AccountAccess() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,7 +53,7 @@ function AccountAccess() {
   
     try {
       let userCredential;
-  
+      
       if (isSignUp) {
         // CREATE ACCOUNT
         userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -48,43 +62,49 @@ function AccountAccess() {
         userCredential = await signInWithEmailAndPassword(auth, email, password);
       }
   
-      // Generate token from the newly signed-in user
-      const token = await userCredential.user.getIdToken(true);
+      // Generate Firebase ID token
+      const idToken = await userCredential.user.getIdToken(true);
   
-      // 1) Convert 'redirectUrl' to a URL object
+      // Fetch Custom Token from Firebase Function
+      const customToken = await fetchCustomToken(idToken);
+  
+      // Construct the Redirect URL
       const urlObj = new URL(redirectUrl, window.location.origin);
+      urlObj.searchParams.delete("token"); // Remove any existing token param
+      urlObj.searchParams.append("token", customToken); // Append the new token
   
-      // 2) Remove any existing 'token' param
-      urlObj.searchParams.delete("token");
-  
-      // 3) Append the new token
-      urlObj.searchParams.append("token", token);
-  
-      // 4) Redirect
-      window.location.href = urlObj.toString();
-  
-    } catch (err) {
-      setError(err.message);
-    }
-  };  
-
-  // Social sign-ins (same for both modes)
-  const handleGoogleSignIn = async () => {
-    try {
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, provider);
-      const token = await result.user.getIdToken(true);
-  
-      const urlObj = new URL(redirectUrl, window.location.origin);
-      urlObj.searchParams.delete("token");
-      urlObj.searchParams.append("token", token);
-  
+      // Redirect the user
       window.location.href = urlObj.toString();
   
     } catch (err) {
       setError(err.message);
     }
   };
+  
+
+  // Social sign-ins (same for both modes)
+  const handleGoogleSignIn = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      const idToken = await result.user.getIdToken(true);
+  
+      // Fetch Custom Token from Firebase Function
+      const customToken = await fetchCustomToken(idToken);
+  
+      // Construct Redirect URL
+      const urlObj = new URL(redirectUrl, window.location.origin);
+      urlObj.searchParams.delete("token"); // Remove existing token param
+      urlObj.searchParams.append("token", customToken); // Append new token
+  
+      // Redirect
+      window.location.href = urlObj.toString();
+  
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+  
 
   const handleAppleSignIn = () => {
     // Placeholder for Apple sign-in logic
