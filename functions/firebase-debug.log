@@ -1,0 +1,347 @@
+[debug] [2025-02-16T06:49:12.422Z] ----------------------------------------------------------------------
+[debug] [2025-02-16T06:49:12.423Z] Command:       /usr/local/share/nvm/versions/node/v20.18.1/bin/node /home/codespace/nvm/current/bin/firebase deploy --only functions
+[debug] [2025-02-16T06:49:12.424Z] CLI Version:   13.31.1
+[debug] [2025-02-16T06:49:12.424Z] Platform:      linux
+[debug] [2025-02-16T06:49:12.424Z] Node Version:  v20.18.1
+[debug] [2025-02-16T06:49:12.424Z] Time:          Sun Feb 16 2025 06:49:12 GMT+0000 (Coordinated Universal Time)
+[debug] [2025-02-16T06:49:12.424Z] Env Overrides: GITHUB_API_URL, GITHUB_API_URL
+[debug] [2025-02-16T06:49:12.424Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-02-16T06:49:12.675Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-02-16T06:49:12.675Z] > authorizing via signed-in user (admin@mindwell.io)
+[debug] [2025-02-16T06:49:12.675Z] [iam] checking project mindwell-world for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-02-16T06:49:12.676Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:12.676Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:12.677Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world:testIamPermissions [none]
+[debug] [2025-02-16T06:49:12.678Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world:testIamPermissions x-goog-quota-user=projects/mindwell-world
+[debug] [2025-02-16T06:49:12.678Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-02-16T06:49:12.959Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world:testIamPermissions 200
+[debug] [2025-02-16T06:49:12.959Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-02-16T06:49:12.960Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:12.960Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:12.960Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/mindwell-world/serviceAccounts/mindwell-world@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-02-16T06:49:12.960Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/mindwell-world/serviceAccounts/mindwell-world@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-02-16T06:49:13.266Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/mindwell-world/serviceAccounts/mindwell-world@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-02-16T06:49:13.266Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/mindwell-world/serviceAccounts/mindwell-world@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'mindwell-world'...
+[info] 
+[info] i  deploying functions 
+[debug] [2025-02-16T06:49:13.269Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:13.269Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:13.269Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world [none]
+[debug] [2025-02-16T06:49:13.385Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world 200
+[debug] [2025-02-16T06:49:13.385Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world {"projectNumber":"565553168549","projectId":"mindwell-world","lifecycleState":"ACTIVE","name":"Mindwell World","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-02-15T20:34:30.663321Z","parent":{"type":"organization","id":"124853482034"}}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[debug] [2025-02-16T06:49:13.386Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:13.386Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:13.386Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:13.386Z] Checked if tokens are valid: true, expires at: 1739689942907
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2025-02-16T06:49:13.386Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:13.386Z] Checked if tokens are valid: true, expires at: 1739689942907
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2025-02-16T06:49:13.387Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:13.387Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:13.387Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/cloudfunctions.googleapis.com [none]
+[debug] [2025-02-16T06:49:13.387Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/mindwell-world
+[debug] [2025-02-16T06:49:13.388Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/runtimeconfig.googleapis.com [none]
+[debug] [2025-02-16T06:49:13.388Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/mindwell-world
+[debug] [2025-02-16T06:49:13.389Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/cloudbuild.googleapis.com [none]
+[debug] [2025-02-16T06:49:13.389Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/cloudbuild.googleapis.com x-goog-quota-user=projects/mindwell-world
+[debug] [2025-02-16T06:49:13.391Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/artifactregistry.googleapis.com [none]
+[debug] [2025-02-16T06:49:13.391Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/artifactregistry.googleapis.com x-goog-quota-user=projects/mindwell-world
+[debug] [2025-02-16T06:49:13.809Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/runtimeconfig.googleapis.com 200
+[debug] [2025-02-16T06:49:13.810Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2025-02-16T06:49:13.811Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/cloudbuild.googleapis.com 200
+[debug] [2025-02-16T06:49:13.811Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2025-02-16T06:49:13.812Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/artifactregistry.googleapis.com 200
+[debug] [2025-02-16T06:49:13.812Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2025-02-16T06:49:13.813Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/cloudfunctions.googleapis.com 200
+[debug] [2025-02-16T06:49:13.813Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2025-02-16T06:49:13.814Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:13.814Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:13.814Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mindwell-world/adminSdkConfig [none]
+[debug] [2025-02-16T06:49:14.151Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mindwell-world/adminSdkConfig 200
+[debug] [2025-02-16T06:49:14.152Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mindwell-world/adminSdkConfig {"projectId":"mindwell-world","storageBucket":"mindwell-world.firebasestorage.app"}
+[debug] [2025-02-16T06:49:14.152Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:14.152Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:14.152Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/mindwell-world/configs [none]
+[debug] [2025-02-16T06:49:14.286Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/mindwell-world/configs 200
+[debug] [2025-02-16T06:49:14.286Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/mindwell-world/configs {}
+[debug] [2025-02-16T06:49:14.287Z] Validating nodejs source
+[debug] [2025-02-16T06:49:14.750Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-02-16T06:49:14.750Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[debug] [2025-02-16T06:49:14.751Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-02-16T06:49:14.755Z] Found firebase-functions binary at '/workspaces/mindwellworld-auth/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8153
+
+[debug] [2025-02-16T06:49:15.188Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[info] i  extensions: ensuring required API firebaseextensions.googleapis.com is enabled... 
+[debug] [2025-02-16T06:49:19.220Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:19.220Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:19.220Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/firebaseextensions.googleapis.com [none]
+[debug] [2025-02-16T06:49:19.220Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/firebaseextensions.googleapis.com x-goog-quota-user=projects/mindwell-world
+[debug] [2025-02-16T06:49:19.599Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/firebaseextensions.googleapis.com 200
+[debug] [2025-02-16T06:49:19.599Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/firebaseextensions.googleapis.com [omitted]
+[info] ✔  extensions: required API firebaseextensions.googleapis.com is enabled 
+[debug] [2025-02-16T06:49:19.599Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-02-16T06:49:19.600Z] > authorizing via signed-in user (admin@mindwell.io)
+[debug] [2025-02-16T06:49:19.600Z] [iam] checking project mindwell-world for permissions ["firebase.projects.get","firebaseextensions.instances.list"]
+[debug] [2025-02-16T06:49:19.600Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:19.600Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:19.600Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world:testIamPermissions [none]
+[debug] [2025-02-16T06:49:19.600Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world:testIamPermissions x-goog-quota-user=projects/mindwell-world
+[debug] [2025-02-16T06:49:19.600Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-02-16T06:49:19.827Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world:testIamPermissions 200
+[debug] [2025-02-16T06:49:19.827Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world:testIamPermissions {"permissions":["firebase.projects.get","firebaseextensions.instances.list"]}
+[debug] [2025-02-16T06:49:19.828Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:19.828Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:19.828Z] >>> [apiv2][query] GET https://firebaseextensions.googleapis.com/v1beta/projects/mindwell-world/instances pageSize=100&pageToken=
+[debug] [2025-02-16T06:49:20.231Z] <<< [apiv2][status] GET https://firebaseextensions.googleapis.com/v1beta/projects/mindwell-world/instances 200
+[debug] [2025-02-16T06:49:20.231Z] <<< [apiv2][body] GET https://firebaseextensions.googleapis.com/v1beta/projects/mindwell-world/instances {}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged /workspaces/mindwellworld-auth/functions (62.03 KB) for uploading 
+[debug] [2025-02-16T06:49:20.263Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:20.263Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:20.263Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/mindwell-world/locations/-/functions [none]
+[debug] [2025-02-16T06:49:20.698Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/mindwell-world/locations/-/functions 200
+[debug] [2025-02-16T06:49:20.698Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/mindwell-world/locations/-/functions {}
+[debug] [2025-02-16T06:49:20.698Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:20.698Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:20.698Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2025-02-16T06:49:21.291Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/-/functions 200
+[debug] [2025-02-16T06:49:21.291Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/-/functions {"functions":[{"name":"projects/mindwell-world/locations/us-central1/functions/api","buildConfig":{"build":"projects/565553168549/locations/us-central1/builds/b38b2bb1-ad6c-4d7d-9918-760e4146eefd","runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739686392367750"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/mindwell-world/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739686392367750"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/mindwell-world/serviceAccounts/565553168549-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"state":"UNKNOWN","updateTime":"2025-02-16T06:41:09.170758786Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5556e1fa69453be3f982fb29c919b09143e0867f"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/mindwell-world/locations/us-central1/services/api for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-mindwell-world.cloudfunctions.net/api","createTime":"2025-02-16T06:13:12.691831892Z","satisfiesPzi":true}]}
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[debug] [2025-02-16T06:49:21.294Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:21.294Z] Checked if tokens are valid: true, expires at: 1739689942907
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[debug] [2025-02-16T06:49:21.294Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:21.294Z] Checked if tokens are valid: true, expires at: 1739689942907
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[debug] [2025-02-16T06:49:21.294Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:21.294Z] Checked if tokens are valid: true, expires at: 1739689942907
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[debug] [2025-02-16T06:49:21.294Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:21.295Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:21.295Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/run.googleapis.com [none]
+[debug] [2025-02-16T06:49:21.295Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/run.googleapis.com x-goog-quota-user=projects/mindwell-world
+[debug] [2025-02-16T06:49:21.296Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/eventarc.googleapis.com [none]
+[debug] [2025-02-16T06:49:21.296Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/eventarc.googleapis.com x-goog-quota-user=projects/mindwell-world
+[debug] [2025-02-16T06:49:21.300Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/pubsub.googleapis.com [none]
+[debug] [2025-02-16T06:49:21.301Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/pubsub.googleapis.com x-goog-quota-user=projects/mindwell-world
+[debug] [2025-02-16T06:49:21.303Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/storage.googleapis.com [none]
+[debug] [2025-02-16T06:49:21.303Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/storage.googleapis.com x-goog-quota-user=projects/mindwell-world
+[debug] [2025-02-16T06:49:21.484Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/pubsub.googleapis.com 200
+[debug] [2025-02-16T06:49:21.484Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/pubsub.googleapis.com [omitted]
+[info] ✔  functions: required API pubsub.googleapis.com is enabled 
+[debug] [2025-02-16T06:49:21.642Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/eventarc.googleapis.com 200
+[debug] [2025-02-16T06:49:21.642Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/eventarc.googleapis.com [omitted]
+[info] ✔  functions: required API eventarc.googleapis.com is enabled 
+[debug] [2025-02-16T06:49:21.644Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/run.googleapis.com 200
+[debug] [2025-02-16T06:49:21.644Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/run.googleapis.com [omitted]
+[info] ✔  functions: required API run.googleapis.com is enabled 
+[debug] [2025-02-16T06:49:21.651Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/storage.googleapis.com 200
+[debug] [2025-02-16T06:49:21.651Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mindwell-world/services/storage.googleapis.com [omitted]
+[info] ✔  functions: required API storage.googleapis.com is enabled 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[debug] [2025-02-16T06:49:21.652Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:21.652Z] Checked if tokens are valid: true, expires at: 1739689942907
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2025-02-16T06:49:21.652Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:21.652Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:21.653Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/565553168549/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-02-16T06:49:21.653Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/565553168549/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2025-02-16T06:49:21.846Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/565553168549/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2025-02-16T06:49:21.846Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/565553168549/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-565553168549@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"103727356205105412857"}}
+[debug] [2025-02-16T06:49:22.021Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/565553168549/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2025-02-16T06:49:22.021Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/565553168549/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-565553168549@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"104854507445684527921"}}
+[debug] [2025-02-16T06:49:22.022Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:22.022Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:22.022Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world [none]
+[debug] [2025-02-16T06:49:22.144Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world 200
+[debug] [2025-02-16T06:49:22.144Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/mindwell-world {"projectNumber":"565553168549","projectId":"mindwell-world","lifecycleState":"ACTIVE","name":"Mindwell World","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-02-15T20:34:30.663321Z","parent":{"type":"organization","id":"124853482034"}}
+[debug] [2025-02-16T06:49:22.145Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:22.145Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:22.145Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/mindwell-world/billingInfo [none]
+[debug] [2025-02-16T06:49:22.289Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/mindwell-world/billingInfo 200
+[debug] [2025-02-16T06:49:22.289Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/mindwell-world/billingInfo {"name":"projects/mindwell-world/billingInfo","projectId":"mindwell-world","billingAccountName":"billingAccounts/016A64-B57B12-FEA544","billingEnabled":true}
+[debug] [2025-02-16T06:49:22.291Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:22.291Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:22.291Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2025-02-16T06:49:22.655Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2025-02-16T06:49:22.655Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/gcf-v2-uploads-565553168549.us-central1.cloudfunctions.appspot.com/7cf5ab48-22d5-498a-aad0-1982d84b9520.zip?GoogleAccessId=service-565553168549@gcf-admin-robot.iam.gserviceaccount.com&Expires=1739690362&Signature=WT8q05ef1lrvppwroKXU6LYrjUKThswQ2xDsYNMfi%2F5Pr0IyrBoabg%2FTyEJIYq7GlYqurMLWSFZepBiTNxyo0KB0sVheyLiPLfzCX%2FyT46mcg1crqK%2B5eP%2BnmIsUOTk1Y8ZGfuSZWk31kVYgC2hpoLqhmT8dp7U2mFlneflAvjsjNRi%2FbSZC8kfQx37Ddci9h92NV1rGxiJsIlbTumf8j50udU3LRKKt7UMBWjQSRCy%2BtQPkn9tSx2%2BNVYClonQNMh6X7ehOhLiNAmzrjvAPkYl7rs2R6s%2B6CPYgfg8Yk5Je4Wrh%2BW2WJ7HqqIH7%2BCL4opJgik8%2Fz8iaOhbBGjTkOA%3D%3D","storageSource":{"bucket":"gcf-v2-uploads-565553168549.us-central1.cloudfunctions.appspot.com","object":"7cf5ab48-22d5-498a-aad0-1982d84b9520.zip"}}
+[debug] [2025-02-16T06:49:22.656Z] >>> [apiv2][query] PUT https://storage.googleapis.com/gcf-v2-uploads-565553168549.us-central1.cloudfunctions.appspot.com/7cf5ab48-22d5-498a-aad0-1982d84b9520.zip GoogleAccessId=service-565553168549%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1739690362&Signature=WT8q05ef1lrvppwroKXU6LYrjUKThswQ2xDsYNMfi%2F5Pr0IyrBoabg%2FTyEJIYq7GlYqurMLWSFZepBiTNxyo0KB0sVheyLiPLfzCX%2FyT46mcg1crqK%2B5eP%2BnmIsUOTk1Y8ZGfuSZWk31kVYgC2hpoLqhmT8dp7U2mFlneflAvjsjNRi%2FbSZC8kfQx37Ddci9h92NV1rGxiJsIlbTumf8j50udU3LRKKt7UMBWjQSRCy%2BtQPkn9tSx2%2BNVYClonQNMh6X7ehOhLiNAmzrjvAPkYl7rs2R6s%2B6CPYgfg8Yk5Je4Wrh%2BW2WJ7HqqIH7%2BCL4opJgik8%2Fz8iaOhbBGjTkOA%3D%3D
+[debug] [2025-02-16T06:49:22.656Z] >>> [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-565553168549.us-central1.cloudfunctions.appspot.com/7cf5ab48-22d5-498a-aad0-1982d84b9520.zip [stream]
+[debug] [2025-02-16T06:49:22.920Z] <<< [apiv2][status] PUT https://storage.googleapis.com/gcf-v2-uploads-565553168549.us-central1.cloudfunctions.appspot.com/7cf5ab48-22d5-498a-aad0-1982d84b9520.zip 200
+[debug] [2025-02-16T06:49:22.920Z] <<< [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-565553168549.us-central1.cloudfunctions.appspot.com/7cf5ab48-22d5-498a-aad0-1982d84b9520.zip [omitted]
+[info] ✔  functions: functions folder uploaded successfully 
+[info] i  functions: updating Node.js 22 (2nd Gen) function api(us-central1)... 
+[debug] [2025-02-16T06:49:22.923Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:22.923Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:22.924Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/functions/api updateMask=name%2CbuildConfig.runtime%2CbuildConfig.entryPoint%2CbuildConfig.source.storageSource.bucket%2CbuildConfig.source.storageSource.object%2CbuildConfig.environmentVariables%2CbuildConfig.sourceToken%2CserviceConfig.environmentVariables%2CserviceConfig.ingressSettings%2CserviceConfig.timeoutSeconds%2CserviceConfig.serviceAccountEmail%2CserviceConfig.availableMemory%2CserviceConfig.minInstanceCount%2CserviceConfig.maxInstanceCount%2CserviceConfig.maxInstanceRequestConcurrency%2CserviceConfig.availableCpu%2CserviceConfig.vpcConnector%2CserviceConfig.vpcConnectorEgressSettings%2Clabels%2CbuildConfig.buildEnvironmentVariables
+[debug] [2025-02-16T06:49:22.924Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/functions/api {"name":"projects/mindwell-world/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-uploads-565553168549.us-central1.cloudfunctions.appspot.com","object":"7cf5ab48-22d5-498a-aad0-1982d84b9520.zip"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}},"serviceConfig":{"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"mindwell-world\",\"storageBucket\":\"mindwell-world.firebasestorage.app\"}","GCLOUD_PROJECT":"mindwell-world","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mindwell-world/locations/us-central1/services/api","FUNCTION_TARGET":"api"},"ingressSettings":null,"timeoutSeconds":null,"serviceAccountEmail":null,"availableMemory":"256Mi","minInstanceCount":null,"maxInstanceCount":null,"maxInstanceRequestConcurrency":80,"availableCpu":"1","vpcConnector":null,"vpcConnectorEgressSettings":null},"labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"de5ddb8874ade426d7d0ab13523482ac320036ff"}}
+[debug] [2025-02-16T06:49:23.983Z] <<< [apiv2][status] PATCH https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/functions/api 200
+[debug] [2025-02-16T06:49:23.983Z] <<< [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/functions/api {"name":"projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-02-16T06:49:23.914257283Z","target":"projects/mindwell-world/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2"},"done":false}
+[debug] [2025-02-16T06:49:23.984Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:23.984Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:23.984Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 [none]
+[debug] [2025-02-16T06:49:24.292Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 200
+[debug] [2025-02-16T06:49:24.292Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 {"name":"projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-02-16T06:49:23.914257283Z","target":"projects/mindwell-world/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mindwell-world/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739688563866520"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/mindwell-world/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739686392367750"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/mindwell-world/serviceAccounts/565553168549-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mindwell-world/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"mindwell-world\",\"storageBucket\":\"mindwell-world.firebasestorage.app\"}","GCLOUD_PROJECT":"mindwell-world","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mindwell-world/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"565553168549-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"de5ddb8874ade426d7d0ab13523482ac320036ff"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/mindwell-world/locations/us-central1/services/api for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-mindwell-world.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","state":"NOT_STARTED"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2025-02-16T06:49:24.793Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-02-16T06:49:24.793Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:24.793Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:24.793Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 [none]
+[debug] [2025-02-16T06:49:25.079Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 200
+[debug] [2025-02-16T06:49:25.079Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 {"name":"projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-02-16T06:49:23.914257283Z","target":"projects/mindwell-world/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mindwell-world/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739688563866520"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/mindwell-world/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739686392367750"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/mindwell-world/serviceAccounts/565553168549-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mindwell-world/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"mindwell-world\",\"storageBucket\":\"mindwell-world.firebasestorage.app\"}","GCLOUD_PROJECT":"mindwell-world","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mindwell-world/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"565553168549-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"de5ddb8874ade426d7d0ab13523482ac320036ff"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/mindwell-world/locations/us-central1/services/api for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-mindwell-world.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/565553168549/locations/us-central1/builds/15d681d5-edd6-4c08-89ec-a24ff8b12794","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/15d681d5-edd6-4c08-89ec-a24ff8b12794?project=565553168549"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/565553168549/locations/us-central1/builds/15d681d5-edd6-4c08-89ec-a24ff8b12794"},"done":false}
+[debug] [2025-02-16T06:49:26.080Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-02-16T06:49:26.081Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:26.081Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:26.081Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 [none]
+[debug] [2025-02-16T06:49:26.378Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 200
+[debug] [2025-02-16T06:49:26.378Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 {"name":"projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-02-16T06:49:23.914257283Z","target":"projects/mindwell-world/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mindwell-world/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739688563866520"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/mindwell-world/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739686392367750"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/mindwell-world/serviceAccounts/565553168549-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mindwell-world/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"mindwell-world\",\"storageBucket\":\"mindwell-world.firebasestorage.app\"}","GCLOUD_PROJECT":"mindwell-world","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mindwell-world/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"565553168549-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"de5ddb8874ade426d7d0ab13523482ac320036ff"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/mindwell-world/locations/us-central1/services/api for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-mindwell-world.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/565553168549/locations/us-central1/builds/15d681d5-edd6-4c08-89ec-a24ff8b12794","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/15d681d5-edd6-4c08-89ec-a24ff8b12794?project=565553168549"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/565553168549/locations/us-central1/builds/15d681d5-edd6-4c08-89ec-a24ff8b12794"},"done":false}
+[debug] [2025-02-16T06:49:28.379Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-02-16T06:49:28.379Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:28.379Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:28.379Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 [none]
+[debug] [2025-02-16T06:49:28.651Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 200
+[debug] [2025-02-16T06:49:28.651Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 {"name":"projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-02-16T06:49:23.914257283Z","target":"projects/mindwell-world/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mindwell-world/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739688563866520"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/mindwell-world/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739686392367750"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/mindwell-world/serviceAccounts/565553168549-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mindwell-world/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"mindwell-world\",\"storageBucket\":\"mindwell-world.firebasestorage.app\"}","GCLOUD_PROJECT":"mindwell-world","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mindwell-world/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"565553168549-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"de5ddb8874ade426d7d0ab13523482ac320036ff"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/mindwell-world/locations/us-central1/services/api for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-mindwell-world.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/565553168549/locations/us-central1/builds/15d681d5-edd6-4c08-89ec-a24ff8b12794","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/15d681d5-edd6-4c08-89ec-a24ff8b12794?project=565553168549"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/565553168549/locations/us-central1/builds/15d681d5-edd6-4c08-89ec-a24ff8b12794"},"done":false}
+[debug] [2025-02-16T06:49:32.652Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-02-16T06:49:32.653Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:32.653Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:32.653Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 [none]
+[debug] [2025-02-16T06:49:32.801Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 200
+[debug] [2025-02-16T06:49:32.801Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 {"name":"projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-02-16T06:49:23.914257283Z","target":"projects/mindwell-world/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mindwell-world/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739688563866520"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/mindwell-world/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739686392367750"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/mindwell-world/serviceAccounts/565553168549-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mindwell-world/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"mindwell-world\",\"storageBucket\":\"mindwell-world.firebasestorage.app\"}","GCLOUD_PROJECT":"mindwell-world","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mindwell-world/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"565553168549-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"de5ddb8874ade426d7d0ab13523482ac320036ff"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/mindwell-world/locations/us-central1/services/api for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-mindwell-world.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/565553168549/locations/us-central1/builds/15d681d5-edd6-4c08-89ec-a24ff8b12794","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/15d681d5-edd6-4c08-89ec-a24ff8b12794?project=565553168549"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/565553168549/locations/us-central1/builds/15d681d5-edd6-4c08-89ec-a24ff8b12794"},"done":false}
+[debug] [2025-02-16T06:49:40.804Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-02-16T06:49:40.804Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:40.804Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:40.805Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 [none]
+[debug] [2025-02-16T06:49:41.098Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 200
+[debug] [2025-02-16T06:49:41.099Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 {"name":"projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-02-16T06:49:23.914257283Z","target":"projects/mindwell-world/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mindwell-world/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739688563866520"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/mindwell-world/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739686392367750"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/mindwell-world/serviceAccounts/565553168549-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mindwell-world/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"mindwell-world\",\"storageBucket\":\"mindwell-world.firebasestorage.app\"}","GCLOUD_PROJECT":"mindwell-world","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mindwell-world/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"565553168549-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"de5ddb8874ade426d7d0ab13523482ac320036ff"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/mindwell-world/locations/us-central1/services/api for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-mindwell-world.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/565553168549/locations/us-central1/builds/15d681d5-edd6-4c08-89ec-a24ff8b12794","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/15d681d5-edd6-4c08-89ec-a24ff8b12794?project=565553168549"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION","buildName":"projects/565553168549/locations/us-central1/builds/15d681d5-edd6-4c08-89ec-a24ff8b12794"},"done":false}
+[debug] [2025-02-16T06:49:51.104Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2025-02-16T06:49:51.104Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:51.104Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:51.105Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 [none]
+[debug] [2025-02-16T06:49:51.428Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 200
+[debug] [2025-02-16T06:49:51.428Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706 {"name":"projects/mindwell-world/locations/us-central1/operations/operation-1739688563171-62e3cced3df20-48df623b-b435f706","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2025-02-16T06:49:23.914257283Z","endTime":"2025-02-16T06:49:43.446430239Z","target":"projects/mindwell-world/locations/us-central1/functions/api","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/mindwell-world/locations/us-central1/functions/api","buildConfig":{"runtime":"nodejs22","entryPoint":"api","source":{"storageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739688563866520"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/mindwell-world/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-565553168549-us-central1","object":"api/function-source.zip","generation":"1739686392367750"}},"dockerRegistry":"ARTIFACT_REGISTRY","serviceAccount":"projects/mindwell-world/serviceAccounts/565553168549-compute@developer.gserviceaccount.com","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/mindwell-world/locations/us-central1/services/api","timeoutSeconds":60,"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"mindwell-world\",\"storageBucket\":\"mindwell-world.firebasestorage.app\"}","GCLOUD_PROJECT":"mindwell-world","EVENTARC_CLOUD_EVENT_SOURCE":"projects/mindwell-world/locations/us-central1/services/api","FUNCTION_TARGET":"api","LOG_EXECUTION_ID":"true"},"ingressSettings":"ALLOW_ALL","serviceAccountEmail":"565553168549-compute@developer.gserviceaccount.com","availableMemory":"256Mi","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"UNKNOWN","labels":{"firebase-functions-hash":"de5ddb8874ade426d7d0ab13523482ac320036ff"},"stateMessages":[{"severity":"ERROR","type":"CloudRunServiceNotFound","message":"Cloud Run service projects/mindwell-world/locations/us-central1/services/api for the function was not found. The function will not work correctly. Please redeploy."}],"environment":"GEN_2","url":"https://us-central1-mindwell-world.cloudfunctions.net/api","satisfiesPzi":true},"stages":[{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":true,"error":{"code":3,"message":"Build failed with status: FAILURE. Could not build the function due to a missing permission on the build service account. If you didn't revoke that permission explicitly, this could be caused by a change in the organization policies. Please refer to the following documentation for more details and resolution: https://cloud.google.com/functions/docs/troubleshooting#build-service-account\n You can also view the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/15d681d5-edd6-4c08-89ec-a24ff8b12794?project=565553168549.\n"}}
+[debug] [2025-02-16T06:49:51.428Z] Got source token undefined for region us-central1
+[error] Build failed with status: FAILURE. Could not build the function due to a missing permission on the build service account. If you didn't revoke that permission explicitly, this could be caused by a change in the organization policies. Please refer to the following documentation for more details and resolution: https://cloud.google.com/functions/docs/troubleshooting#build-service-account
+ You can also view the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/15d681d5-edd6-4c08-89ec-a24ff8b12794?project=565553168549.
+
+[debug] [2025-02-16T06:49:51.430Z] Total Function Deployment time: 28507
+[debug] [2025-02-16T06:49:51.430Z] 1 Functions Deployed
+[debug] [2025-02-16T06:49:51.430Z] 1 Functions Errored
+[debug] [2025-02-16T06:49:51.430Z] 0 Function Deployments Aborted
+[debug] [2025-02-16T06:49:51.430Z] Average Function Deployment time: 28507
+[info] 
+[info] Functions deploy had errors with the following functions:
+	api(us-central1)
+[debug] [2025-02-16T06:49:51.431Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[info] i  functions: cleaning up build files... 
+[debug] [2025-02-16T06:49:51.431Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:51.431Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:51.432Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:51.432Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:51.432Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/mindwell-world/locations/us-central1/repositories/gcf-artifacts/packages/api [none]
+[debug] [2025-02-16T06:49:51.433Z] >>> [apiv2][query] GET https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list [none]
+[debug] [2025-02-16T06:49:51.572Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/mindwell-world/locations/us-central1/repositories/gcf-artifacts/packages/api 404
+[debug] [2025-02-16T06:49:51.572Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/mindwell-world/locations/us-central1/repositories/gcf-artifacts/packages/api {"error":{"code":404,"message":"Package \"projects/mindwell-world/locations/us-central1/repositories/gcf-artifacts/packages/api\" was not found.","status":"NOT_FOUND"}}
+[debug] [2025-02-16T06:49:51.616Z] <<< [apiv2][status] GET https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list 404
+[debug] [2025-02-16T06:49:51.616Z] <<< [apiv2][body] GET https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2025-02-16T06:49:51.617Z] Failed docker command with error  Request to https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[debug] [2025-02-16T06:49:51.618Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:51.618Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:51.618Z] >>> [apiv2][query] GET https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list [none]
+[debug] [2025-02-16T06:49:51.776Z] <<< [apiv2][status] GET https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list 404
+[debug] [2025-02-16T06:49:51.777Z] <<< [apiv2][body] GET https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2025-02-16T06:49:51.777Z] Failed docker command with error  Request to https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[debug] [2025-02-16T06:49:51.877Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:51.877Z] Checked if tokens are valid: true, expires at: 1739689942907
+[debug] [2025-02-16T06:49:51.878Z] >>> [apiv2][query] GET https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list [none]
+[debug] [2025-02-16T06:49:52.039Z] <<< [apiv2][status] GET https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list 404
+[debug] [2025-02-16T06:49:52.039Z] <<< [apiv2][body] GET https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list {"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}]}
+[debug] [2025-02-16T06:49:52.039Z] Failed docker command with error  Request to https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list had HTTP Error: 404, Not Found {"name":"FirebaseError","children":[],"context":{"body":{"errors":[{"code":"NAME_UNKNOWN","message":"Repository \"us.gcr.io\" not found"}],"error":{"message":"Not Found"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://us.gcr.io/v2/mindwell-world/gcf/us-central1/tags/list had HTTP Error: 404, Not Found","status":404}
+[warn] ⚠  functions: Unhandled error cleaning up build images. This could result in a small monthly bill if not corrected. You can attempt to delete these images by redeploying or you can delete them manually at https://console.cloud.google.com/gcr/images/mindwell-world/us/gcf 
+[debug] [2025-02-16T06:49:52.040Z] Functions deploy failed.
+[debug] [2025-02-16T06:49:52.040Z] {
+  "endpoint": {
+    "id": "api",
+    "project": "mindwell-world",
+    "region": "us-central1",
+    "entryPoint": "api",
+    "platform": "gcfv2",
+    "runtime": "nodejs22",
+    "httpsTrigger": {},
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "ingressSettings": null,
+    "availableMemoryMb": null,
+    "serviceAccount": null,
+    "timeoutSeconds": null,
+    "maxInstances": null,
+    "minInstances": null,
+    "concurrency": 80,
+    "vpc": null,
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"mindwell-world\",\"storageBucket\":\"mindwell-world.firebasestorage.app\"}",
+      "GCLOUD_PROJECT": "mindwell-world",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/mindwell-world/locations/us-central1/services/api"
+    },
+    "codebase": "default",
+    "securityLevel": "SECURE_ALWAYS",
+    "cpu": 1,
+    "targetedByOnly": false,
+    "hash": "de5ddb8874ade426d7d0ab13523482ac320036ff"
+  },
+  "op": "update",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "exit": 1,
+    "message": "Build failed with status: FAILURE. Could not build the function due to a missing permission on the build service account. If you didn't revoke that permission explicitly, this could be caused by a change in the organization policies. Please refer to the following documentation for more details and resolution: https://cloud.google.com/functions/docs/troubleshooting#build-service-account\n You can also view the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/15d681d5-edd6-4c08-89ec-a24ff8b12794?project=565553168549.\n",
+    "original": {
+      "code": 3,
+      "message": "Build failed with status: FAILURE. Could not build the function due to a missing permission on the build service account. If you didn't revoke that permission explicitly, this could be caused by a change in the organization policies. Please refer to the following documentation for more details and resolution: https://cloud.google.com/functions/docs/troubleshooting#build-service-account\n You can also view the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/15d681d5-edd6-4c08-89ec-a24ff8b12794?project=565553168549.\n"
+    },
+    "status": 3,
+    "code": 3
+  }
+}
+[debug] [2025-02-16T06:49:52.040Z] Error: Failed to update function api in region us-central1
+    at /usr/local/share/nvm/versions/node/v20.18.1/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:399:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Fabricator.updateV2Function (/usr/local/share/nvm/versions/node/v20.18.1/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:388:32)
+    at async Fabricator.updateEndpoint (/usr/local/share/nvm/versions/node/v20.18.1/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:155:13)
+    at async handle (/usr/local/share/nvm/versions/node/v20.18.1/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:89:17)
+[error] 
+[error] Error: There was an error deploying functions
