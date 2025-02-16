@@ -10,8 +10,9 @@ import "./AccountAccess.css";
 
 
 // Function to fetch the custom token from Firebase Function
+// https://api-3g5u5d4ixa-uc.a.run.app/mintCustomToken
 const fetchCustomToken = async (idToken) => {
-  const response = await fetch("https://api-3g5u5d4ixa-uc.a.run.app", {
+  const response = await fetch("https://us-central1-mindwell-world.cloudfunctions.net/api/mintCustomToken", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ idToken }),
@@ -64,16 +65,19 @@ function AccountAccess() {
   
       // Generate Firebase ID token
       const idToken = await userCredential.user.getIdToken(true);
-  
+      console.log("idToken", idToken);
+
       // Fetch Custom Token from Firebase Function
       const customToken = await fetchCustomToken(idToken);
-  
+      console.log("customToken", customToken);
+
       // Construct the Redirect URL
       const urlObj = new URL(redirectUrl, window.location.origin);
       urlObj.searchParams.delete("token"); // Remove any existing token param
       urlObj.searchParams.append("token", customToken); // Append the new token
   
       // Redirect the user
+      console.log("Redirecting to:", urlObj.toString());
       window.location.href = urlObj.toString();
   
     } catch (err) {
@@ -98,6 +102,7 @@ function AccountAccess() {
       urlObj.searchParams.append("token", customToken); // Append new token
   
       // Redirect
+      console.log("Redirecting to:", urlObj.toString());
       window.location.href = urlObj.toString();
   
     } catch (err) {
