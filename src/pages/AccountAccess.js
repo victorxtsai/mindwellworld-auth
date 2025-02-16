@@ -4,24 +4,26 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  OAuthProvider,
 } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import "./AccountAccess.css";
 
-
 // Function to fetch the custom token from Firebase Function
 // https://api-3g5u5d4ixa-uc.a.run.app/mintCustomToken
 const fetchCustomToken = async (idToken) => {
-  const response = await fetch("https://us-central1-mindwell-world.cloudfunctions.net/api/mintCustomToken", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ idToken }),
-  });
+  const response = await fetch(
+    "https://us-central1-mindwell-world.cloudfunctions.net/api/mintCustomToken",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ idToken }),
+    }
+  );
 
   const data = await response.json();
   return data.customToken;
 };
-
 
 function AccountAccess() {
   const [email, setEmail] = useState("");
@@ -29,7 +31,7 @@ function AccountAccess() {
   const [error, setError] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
 
-  // We'll store the redirect URL from query params (default to / if none)
+  // Store redirect URL from query params (default to "/" if none)
   const [redirectUrl, setRedirectUrl] = useState("/");
 
   // On mount, parse the ?redirect= param
@@ -47,73 +49,88 @@ function AccountAccess() {
     setError("");
   };
 
-  // Handle form submission (Sign In or Sign Up)
+  /**
+   * Helper function: Given a Firebase user object, get custom token,
+   * build final redirect URL, and redirect the user.
+   */
+  const redirectWithCustomToken = async (user) => {
+    // 1) Get the standard Firebase ID token
+    const idToken = await user.getIdToken(true);
+
+    // 2) Exchange for your custom token
+    const customToken = await fetchCustomToken(idToken);
+
+    // 3) Create final URL and add the new query params
+    const urlObj = new URL(redirectUrl, window.location.origin);
+    urlObj.searchParams.delete("token");
+    urlObj.searchParams.delete("uid");
+    urlObj.searchParams.append("token", customToken);
+    urlObj.searchParams.append("uid", user.uid);
+
+    console.log("Redirecting to:", urlObj.toString());
+    window.location.href = urlObj.toString();
+  };
+
+  /**
+   * Handle Form Submission (Email/Password Sign In or Sign Up)
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-  
+
     try {
       let userCredential;
-      
       if (isSignUp) {
-        // CREATE ACCOUNT
-        userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
       } else {
-        // SIGN IN
-        userCredential = await signInWithEmailAndPassword(auth, email, password);
+        userCredential = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
       }
-  
-      // Generate Firebase ID token
-      const idToken = await userCredential.user.getIdToken(true);
-      console.log("idToken", idToken);
 
-      // Fetch Custom Token from Firebase Function
-      const customToken = await fetchCustomToken(idToken);
-      console.log("customToken", customToken);
-
-      // Construct the Redirect URL
-      const urlObj = new URL(redirectUrl, window.location.origin);
-      urlObj.searchParams.delete("token"); // Remove any existing token param
-      urlObj.searchParams.append("token", customToken); // Append the new token
-  
-      // Redirect the user
-      console.log("Redirecting to:", urlObj.toString());
-      window.location.href = urlObj.toString();
-  
+      // If successful, redirect with custom token
+      await redirectWithCustomToken(userCredential.user);
     } catch (err) {
       setError(err.message);
     }
   };
-  
 
-  // Social sign-ins (same for both modes)
+  /**
+   * Handle Google Sign-In
+   */
   const handleGoogleSignIn = async () => {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
-      const idToken = await result.user.getIdToken(true);
-  
-      // Fetch Custom Token from Firebase Function
-      const customToken = await fetchCustomToken(idToken);
-  
-      // Construct Redirect URL
-      const urlObj = new URL(redirectUrl, window.location.origin);
-      urlObj.searchParams.delete("token"); // Remove existing token param
-      urlObj.searchParams.append("token", customToken); // Append new token
-  
-      // Redirect
-      console.log("Redirecting to:", urlObj.toString());
-      window.location.href = urlObj.toString();
-  
+      await redirectWithCustomToken(result.user);
     } catch (err) {
+      console.error("Error during Google Sign-In:", err);
       setError(err.message);
     }
   };
-  
 
-  const handleAppleSignIn = () => {
-    // Placeholder for Apple sign-in logic
-    alert("Apple sign-in clicked! Implement Apple Auth here.");
+  /**
+   * Handle Apple Sign-In (Web popup approach with Firebase)
+   */
+  const handleAppleSignIn = async () => {
+    try {
+      // The provider for Apple is "apple.com"
+      // Make sure you have Apple provider enabled in your Firebase Console
+      const provider = new OAuthProvider("apple.com");
+      // You can optionally add scopes here. E.g.: provider.addScope('email');
+
+      const result = await signInWithPopup(auth, provider);
+      await redirectWithCustomToken(result.user);
+    } catch (err) {
+      console.error("Error during Apple Sign-In:", err);
+      setError(err.message);
+    }
   };
 
   return (
@@ -181,14 +198,22 @@ function AccountAccess() {
           {isSignUp ? (
             <>
               Already have an account?{" "}
-              <span onClick={toggleMode} className="accountaccess-link" style={{ cursor: "pointer" }}>
+              <span
+                onClick={toggleMode}
+                className="accountaccess-link"
+                style={{ cursor: "pointer" }}
+              >
                 Sign In
               </span>
             </>
           ) : (
             <>
               Don’t have an account?{" "}
-              <span onClick={toggleMode} className="accountaccess-link" style={{ cursor: "pointer" }}>
+              <span
+                onClick={toggleMode}
+                className="accountaccess-link"
+                style={{ cursor: "pointer" }}
+              >
                 Sign Up
               </span>
             </>
