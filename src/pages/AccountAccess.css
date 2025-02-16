@@ -1,75 +1,63 @@
-/* Sign-in page background */
+/* Full-page container */
 .accountaccess-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     width: 100%;
-    background: #fff; /* Entire background is now white */
+    background: #fff;
     padding: 1rem;
-}
-
-/* Centering everything in a flex column */
-.accountaccess-card {
+  }
+  
+  /* The card-like wrapper for the form */
+  .accountaccess-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 100%;
-    max-width: 400px;
+    max-width: 400px; /* Limit total width */
     padding: 2rem;
-    background: transparent; /* Blend with white background */
-    text-align: center; /* Ensure all text is centered */
-}
-
-/* Header / Logo area */
-.accountaccess-header {
+    background: transparent;
+    text-align: center; /* Center the headings, etc. */
+  }
+  
+  /* Header/Title area */
+  .accountaccess-header {
     width: 100%;
-    text-align: center;
     margin-bottom: 1rem;
-}
-
-/* Title text */
-.accountaccess-title {
-    margin-top: 10px;
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-/* Form layout */
-.accountaccess-form {
-    display: flex;
-    flex-direction: column;
+  }
+  
+  /* The form wrapper */
+  .accountaccess-form {
     width: 100%;
-    align-items: center; /* Ensure everything is centered */
     margin-top: 1rem;
-}
-
-/* Label styling */
-.accountaccess-label {
+    /* No align-items center so inputs/buttons stretch full width */
+  }
+  
+  /* Label styling */
+  .accountaccess-label {
+    display: block;
+    width: 100%;
     font-weight: bold;
     margin-bottom: 0.5rem;
     margin-top: 1rem;
+    text-align: left; /* Usually labels look better left-aligned */
+  }
+  
+  /* Input fields (full width) */
+  .accountaccess-input {
     width: 100%;
-    text-align: left; /* Labels should align left */
-}
-
-/* Text input styling - now same width as buttons */
-.accountaccess-input {
     padding: 0.75rem;
     font-size: 1rem;
     border-radius: 4px;
     border: 1px solid #ccc;
     outline: none;
-    width: 100%; /* Full width */
-    max-width: 100%; /* Prevent it from exceeding parent container */
-    text-align: center;
-}
-
-/* Sign-in button style */
-.accountaccess-btn-primary {
-    margin-top: 1.5rem;
+    margin-bottom: 0.75rem; /* Space under each input */
+  }
+  
+  /* Primary action button (Sign In / Create) */
+  .accountaccess-btn-primary {
+    width: 100%;
     padding: 0.75rem;
     font-size: 1rem;
     background-color: #4c6ef5;
@@ -77,37 +65,12 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 1rem; /* Space above the button */
+  }
+  
+  /* Social sign-in buttons (Google, Apple) */
+  .accountaccess-btn-social {
     width: 100%;
-    max-width: 100%; /* Same width as input */
-    text-align: center;
-}
-
-/* "Forgot password?" and other links */
-.accountaccess-extra-links {
-    margin-top: 1rem;
-    text-align: center;
-    width: 100%;
-}
-
-/* Link style */
-.accountaccess-link {
-    color: #4c6ef5;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
-/* Divider line */
-.accountaccess-divider {
-    margin: 2rem 0;
-    border: none;
-    border-top: 1px solid #eee;
-    width: 100%;
-}
-
-/* Social sign-in buttons (Google, Apple, etc.) - same width as input and primary button */
-.accountaccess-btn-social {
-    width: 100%;
-    max-width: 100%; /* Ensure it aligns with input fields */
     padding: 0.75rem;
     font-size: 1rem;
     border: 1px solid #ccc;
@@ -116,19 +79,42 @@
     cursor: pointer;
     margin-bottom: 0.75rem;
     text-align: center;
-}
-
-/* Apple sign-in button styling */
-.accountaccess-btn-apple {
+  }
+  
+  /* Apple button styling override */
+  .accountaccess-btn-apple {
     background-color: #000;
     color: #fff;
     border: 1px solid #333;
-}
-
-/* Error message styling */
-.accountaccess-error {
-    color: red;
-    margin-top: 0.5rem;
+  }
+  
+  /* Extra links (Forgot password?) */
+  .accountaccess-extra-links {
+    margin-top: 1rem;
     text-align: center;
     width: 100%;
-}
+  }
+  
+  /* Link style */
+  .accountaccess-link {
+    color: #4c6ef5;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  
+  /* Divider line (full width) */
+  .accountaccess-divider {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid #eee;
+    width: 100%;
+  }
+  
+  /* Error message styling */
+  .accountaccess-error {
+    color: red;
+    margin-top: 0.5rem;
+    width: 100%;
+    text-align: center;
+  }
+  

@@ -1,32 +1,54 @@
 import React, { useState } from "react";
 import {
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../firebaseConfig";
-import "./AccountAccess.css"; // Import the CSS
+import "./AccountAccess.css";
 
 function AccountAccess() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isSignUp, setIsSignUp] = useState(false);
 
-  const handleEmailSignIn = async (e) => {
+  // We'll store the redirect URL from query params (default to / if none)
+  const [redirectUrl, setRedirectUrl] = useState("/");
+
+  // Toggle between Sign In and Sign Up modes
+  const toggleMode = () => {
+    setIsSignUp((prev) => !prev);
+    setError("");
+  };
+
+  // Handle form submission (Sign In or Sign Up)
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      // TODO: Redirect or handle successful login
+      if (isSignUp) {
+        // CREATE ACCOUNT
+        await createUserWithEmailAndPassword(auth, email, password);
+        // TODO: Redirect or handle success (e.g., navigate to dashboard)
+      } else {
+        // SIGN IN
+        await signInWithEmailAndPassword(auth, email, password);
+        // TODO: Redirect or handle success
+      }
     } catch (err) {
       setError(err.message);
     }
   };
 
+  // Social sign-ins (same for both modes)
   const handleGoogleSignIn = async () => {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      // TODO: Redirect or handle successful login
+      // TODO: Redirect or handle success
     } catch (err) {
       setError(err.message);
     }
@@ -42,11 +64,10 @@ function AccountAccess() {
       <div className="accountaccess-card">
         {/* Header / Logo */}
         <div className="accountaccess-header">
-          <h1>Sign In</h1>
+          <h1>{isSignUp ? "Create An Account" : "Sign In"}</h1>
         </div>
 
-        {/* Email / Password Form */}
-        <form onSubmit={handleEmailSignIn} className="accountaccess-form">
+        <form onSubmit={handleSubmit} className="accountaccess-form">
           <label className="accountaccess-label">Email address</label>
           <input
             type="email"
@@ -70,34 +91,51 @@ function AccountAccess() {
           {error && <div className="accountaccess-error">{error}</div>}
 
           <button type="submit" className="accountaccess-btn-primary">
-            Sign In
+            {isSignUp ? "Create" : "Sign In"}
           </button>
         </form>
 
-        <div className="accountaccess-extra-links">
-          <a href="/forgot-password" className="accountaccess-link">
-            Forgot password?
-          </a>
-        </div>
+        {/* You could hide this link if in Sign Up mode, or keep it */}
+        {!isSignUp && (
+          <div className="accountaccess-extra-links">
+            <a href="/forgot-password" className="accountaccess-link">
+              Forgot password?
+            </a>
+          </div>
+        )}
 
         <hr className="accountaccess-divider" />
 
-        {/* Social Sign-in Buttons */}
+        {/* Social Sign-in Buttons (same for both modes) */}
         <button onClick={handleGoogleSignIn} className="accountaccess-btn-social">
           Continue with Google
         </button>
 
-        <button onClick={handleAppleSignIn} className="accountaccess-btn-social accountaccess-btn-apple">
+        <button
+          onClick={handleAppleSignIn}
+          className="accountaccess-btn-social accountaccess-btn-apple"
+        >
           Continue with Apple
         </button>
 
         <hr className="accountaccess-divider" />
 
         <div style={{ textAlign: "center" }}>
-          Don’t have an account?{" "}
-          <a href="/signup" className="accountaccess-link">
-            Sign Up
-          </a>
+          {isSignUp ? (
+            <>
+              Already have an account?{" "}
+              <span onClick={toggleMode} className="accountaccess-link" style={{ cursor: "pointer" }}>
+                Sign In
+              </span>
+            </>
+          ) : (
+            <>
+              Don’t have an account?{" "}
+              <span onClick={toggleMode} className="accountaccess-link" style={{ cursor: "pointer" }}>
+                Sign Up
+              </span>
+            </>
+          )}
         </div>
       </div>
     </div>
