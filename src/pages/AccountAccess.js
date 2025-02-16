@@ -5,9 +5,9 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../firebaseConfig";
-import "./SignIn.css"; // Import the CSS
+import "./AccountAccess.css"; // Import the CSS
 
-function SignIn() {
+function AccountAccess() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -38,66 +38,64 @@ function SignIn() {
   };
 
   return (
-    <div className="signin-container">
-      <div className="signin-card">
+    <div className="accountaccess-container">
+      <div className="accountaccess-card">
         {/* Header / Logo */}
-        <div className="signin-header">
-          <h1>Mindwell World</h1>
+        <div className="accountaccess-header">
+          <h1>Sign In</h1>
         </div>
 
-        <h2 className="signin-title">Sign in to your account</h2>
-
         {/* Email / Password Form */}
-        <form onSubmit={handleEmailSignIn} className="signin-form">
-          <label className="signin-label">Email address</label>
+        <form onSubmit={handleEmailSignIn} className="accountaccess-form">
+          <label className="accountaccess-label">Email address</label>
           <input
             type="email"
-            className="signin-input"
+            className="accountaccess-input"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
             required
           />
 
-          <label className="signin-label">Password</label>
+          <label className="accountaccess-label">Password</label>
           <input
             type="password"
-            className="signin-input"
+            className="accountaccess-input"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="••••••••"
             required
           />
 
-          {error && <div className="signin-error">{error}</div>}
+          {error && <div className="accountaccess-error">{error}</div>}
 
-          <button type="submit" className="signin-btn-primary">
+          <button type="submit" className="accountaccess-btn-primary">
             Sign In
           </button>
         </form>
 
-        <div className="signin-extra-links">
-          <a href="/forgot-password" className="signin-link">
+        <div className="accountaccess-extra-links">
+          <a href="/forgot-password" className="accountaccess-link">
             Forgot password?
           </a>
         </div>
 
-        <hr className="signin-divider" />
+        <hr className="accountaccess-divider" />
 
         {/* Social Sign-in Buttons */}
-        <button onClick={handleGoogleSignIn} className="signin-btn-social">
+        <button onClick={handleGoogleSignIn} className="accountaccess-btn-social">
           Continue with Google
         </button>
 
-        <button onClick={handleAppleSignIn} className="signin-btn-social signin-btn-apple">
+        <button onClick={handleAppleSignIn} className="accountaccess-btn-social accountaccess-btn-apple">
           Continue with Apple
         </button>
 
-        <hr className="signin-divider" />
+        <hr className="accountaccess-divider" />
 
         <div style={{ textAlign: "center" }}>
           Don’t have an account?{" "}
-          <a href="/signup" className="signin-link">
+          <a href="/signup" className="accountaccess-link">
             Sign Up
           </a>
         </div>
@@ -106,4 +104,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default AccountAccess;
