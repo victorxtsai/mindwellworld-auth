@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -17,7 +17,16 @@ function AccountAccess() {
   // We'll store the redirect URL from query params (default to / if none)
   const [redirectUrl, setRedirectUrl] = useState("/");
 
-  // Toggle between Sign In and Sign Up modes
+  // On mount, parse the ?redirect= param
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const redirectParam = params.get("redirect");
+    console.log("Debug: redirectParam =", redirectParam); // <-- Add this
+    if (redirectParam) {
+      setRedirectUrl(redirectParam);
+    }
+  }, []);
+
   const toggleMode = () => {
     setIsSignUp((prev) => !prev);
     setError("");
@@ -27,28 +36,51 @@ function AccountAccess() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
+  
     try {
+      let userCredential;
+  
       if (isSignUp) {
         // CREATE ACCOUNT
-        await createUserWithEmailAndPassword(auth, email, password);
-        // TODO: Redirect or handle success (e.g., navigate to dashboard)
+        userCredential = await createUserWithEmailAndPassword(auth, email, password);
       } else {
         // SIGN IN
-        await signInWithEmailAndPassword(auth, email, password);
-        // TODO: Redirect or handle success
+        userCredential = await signInWithEmailAndPassword(auth, email, password);
       }
+  
+      // Generate token from the newly signed-in user
+      const token = await userCredential.user.getIdToken(true);
+  
+      // 1) Convert 'redirectUrl' to a URL object
+      const urlObj = new URL(redirectUrl, window.location.origin);
+  
+      // 2) Remove any existing 'token' param
+      urlObj.searchParams.delete("token");
+  
+      // 3) Append the new token
+      urlObj.searchParams.append("token", token);
+  
+      // 4) Redirect
+      window.location.href = urlObj.toString();
+  
     } catch (err) {
       setError(err.message);
     }
-  };
+  };  
 
   // Social sign-ins (same for both modes)
   const handleGoogleSignIn = async () => {
     try {
       const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
-      // TODO: Redirect or handle success
+      const result = await signInWithPopup(auth, provider);
+      const token = await result.user.getIdToken(true);
+  
+      const urlObj = new URL(redirectUrl, window.location.origin);
+      urlObj.searchParams.delete("token");
+      urlObj.searchParams.append("token", token);
+  
+      window.location.href = urlObj.toString();
+  
     } catch (err) {
       setError(err.message);
     }
@@ -95,7 +127,7 @@ function AccountAccess() {
           </button>
         </form>
 
-        {/* You could hide this link if in Sign Up mode, or keep it */}
+        {/* Conditionally show "Forgot password?" link */}
         {!isSignUp && (
           <div className="accountaccess-extra-links">
             <a href="/forgot-password" className="accountaccess-link">
@@ -106,7 +138,7 @@ function AccountAccess() {
 
         <hr className="accountaccess-divider" />
 
-        {/* Social Sign-in Buttons (same for both modes) */}
+        {/* Social Sign-in Buttons */}
         <button onClick={handleGoogleSignIn} className="accountaccess-btn-social">
           Continue with Google
         </button>
