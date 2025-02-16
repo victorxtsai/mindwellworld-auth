@@ -1,0 +1,113 @@
+/* SignIn.css */
+
+/* Container holds everything centered on the page */
+.signin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f2f2f2;
+    padding: 1rem;
+  }
+  
+  /* The white card box */
+  .signin-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header / Logo area */
+  .signin-header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Title text */
+  .signin-title {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Form layout */
+  .signin-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  
+  /* Label styling */
+  .signin-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  /* Text input styling */
+  .signin-input {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  
+  /* Sign In button style */
+  .signin-btn-primary {
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #4c6ef5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* "Forgot password?" and such at the right side */
+  .signin-extra-links {
+    margin-top: 1rem;
+    text-align: right;
+  }
+  
+  /* Link style */
+  .signin-link {
+    color: #4c6ef5;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  
+  /* Divider line */
+  .signin-divider {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid #eee;
+  }
+  
+  /* Social sign-in buttons (Google, Apple, etc.) */
+  .signin-btn-social {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+  }
+  
+  .signin-btn-apple {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #333;
+  }
+  
+  /* Error message styling */
+  .signin-error {
+    color: red;
+    margin-top: 0.5rem;
+  }
+  
