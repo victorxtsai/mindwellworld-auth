@@ -54,22 +54,30 @@ function AccountAccess() {
    * build final redirect URL, and redirect the user.
    */
   const redirectWithCustomToken = async (user) => {
-    // 1) Get the standard Firebase ID token
-    const idToken = await user.getIdToken(true);
-
-    // 2) Exchange for your custom token
-    const customToken = await fetchCustomToken(idToken);
-
-    // 3) Create final URL and add the new query params
-    const urlObj = new URL(redirectUrl, window.location.origin);
-    urlObj.searchParams.delete("token");
-    urlObj.searchParams.delete("uid");
-    urlObj.searchParams.append("token", customToken);
-    urlObj.searchParams.append("uid", user.uid);
-
-    console.log("Redirecting to:", urlObj.toString());
-    window.location.href = urlObj.toString();
+    try {
+      if (!user) throw new Error("User object is missing");
+  
+      const idToken = await user.getIdToken(true);
+      const customToken = await fetchCustomToken(idToken);
+  
+      if (!customToken) throw new Error("Custom token fetch failed");
+  
+      if (!redirectUrl) throw new Error("Redirect URL is missing");
+  
+      const urlObj = new URL(redirectUrl, window.location.origin);
+      urlObj.searchParams.delete("token");
+      urlObj.searchParams.delete("uid");
+      urlObj.searchParams.append("token", customToken);
+      urlObj.searchParams.append("uid", user.uid);
+  
+      console.log("Redirecting to:", urlObj.toString());
+      window.location.href = urlObj.toString();
+    } catch (error) {
+      console.error("Error during redirect:", error);
+    }
   };
+  
+  
 
   /**
    * Handle Form Submission (Email/Password Sign In or Sign Up)
