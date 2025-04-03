@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   OAuthProvider,
+  sendEmailVerification,
 } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import "./AccountAccess.css";
@@ -94,6 +95,7 @@ function AccountAccess() {
           email,
           password
         );
+        await sendEmailVerification(userCredential.user);
       } else {
         userCredential = await signInWithEmailAndPassword(
           auth,
